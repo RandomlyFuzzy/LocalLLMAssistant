@@ -23,7 +23,7 @@ def handle_tool_call(id, name, args):
     elif name == "ask_with_image":
         prompt = args["prompt"]
         img_path = args["image_path"]
-        model = args.get("model", "llava")
+        model = args.get("model", "gemma4:e2b")
         with open(img_path, "rb") as f:
             b64 = base64.b64encode(f.read()).decode()
         r = client.post("/api/chat", json={
@@ -89,7 +89,7 @@ def main():
                                 "properties": {
                                     "prompt": {"type": "string"},
                                     "image_path": {"type": "string", "description": "Local path to image file"},
-                                    "model": {"type": "string", "default": "llava"}
+                                    "model": {"type": "string", "default": "gemma4:e2b"}
                                 },
                                 "required": ["prompt", "image_path"]
                             }
