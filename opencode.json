@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "mcp": {
+    "ollama-asker": {
+      "type": "local",
+      "command": ["python", "server.py"],
+      "enabled": true,
+      "env": {
+        "OLLAMA_URL": "http://localhost:11433"
+      }
+    }
+  }
+}
